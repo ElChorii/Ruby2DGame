@@ -64,7 +64,6 @@ public class EnemyController : MonoBehaviour
             animator.SetFloat("Move Y", 0);
         }
 
-
         rigidbody2d.MovePosition(position);
     }
 
@@ -72,7 +71,6 @@ public class EnemyController : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         PlayerController player = other.gameObject.GetComponent<PlayerController>();
-
 
         if (player != null)
         {
@@ -85,7 +83,6 @@ public class EnemyController : MonoBehaviour
     {
         Destroy(gameObject);
     }
-
 
 
     public void Fix()

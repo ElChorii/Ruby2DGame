@@ -81,8 +81,6 @@ public class PlayerController : MonoBehaviour
     }
 
 
-
-
     // FixedUpdate has the same call rate as the physics system 
     void FixedUpdate()
     {
