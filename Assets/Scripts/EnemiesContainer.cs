@@ -14,9 +14,6 @@ public class EnemiesContainer : MonoBehaviour
     public GameObject robotico6;
     float numeroDeEnemigos = 0;
 
-    private void Start()
-    {
-    }
     // Update is called once per frame
     void Update()
     {

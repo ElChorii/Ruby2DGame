@@ -29,7 +29,7 @@ public class UIHandler : MonoBehaviour
         SetHealthValue(1.0f);
 
         m_NonPlayerDialogue = uiDocument.rootVisualElement.Q<VisualElement>("NPCDialogue");
-       // m_NonPlayerDialogue.style.display = DisplayStyle.None;
+        //m_NonPlayerDialogue.style.display = DisplayStyle.None;
         m_TimerDisplay = -1.0f;
         
     }
