@@ -1,37 +1,49 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 
 public class EnemiesContainer : MonoBehaviour
 {
-    public float quedaParaQueAparezcan = 5f;
-    //public bool spawneaElSiguiente = false;
-    public GameObject robotico1;
-    public GameObject robotico2;
-    public GameObject robotico3;
-    public GameObject robotico4;
-    public GameObject robotico5;
-    public GameObject robotico6;
-    float numeroDeEnemigos = 0;
+    public static EnemiesContainer instance;
 
-    // Update is called once per frame
-    void Update()
+    [SerializeField] GameObject contenedorEnemigos;
+    
+    [SerializeField] TextMeshProUGUI etiquetaEnemigosRestantes;
+    [SerializeField] TextMeshProUGUI etiquetaEnemigosTotales;
+
+    int enemigosRestantes = 0;
+    int enemigosTotales = 0;
+
+    private void Awake()
     {
-        quedaParaQueAparezcan = quedaParaQueAparezcan -1 * Time.deltaTime;
-        if (quedaParaQueAparezcan < 0)
+        if (instance == null)
         {
-            AparecenTodos(); 
+            instance = this;
+        }
+        else
+        {
+            Destroy(this);
         }
     }
-    public void AparecenTodos()
+
+    private void Start()
     {
-        //spawneaElSiguiente = true;
-        robotico1.SetActive(true);
-        robotico2.SetActive(true);
-        robotico3.SetActive(true);
-        robotico4.SetActive(true);
-        robotico5.SetActive(true);
-        robotico6.SetActive(true);
-        numeroDeEnemigos = numeroDeEnemigos + 5;
+        SumarEnemigos(contenedorEnemigos.transform.childCount);
+    }
+
+    public void SumarEnemigos(int enemigosASumar)
+    {
+        enemigosTotales += enemigosASumar;
+        enemigosRestantes += enemigosASumar;
+
+        etiquetaEnemigosTotales.text = enemigosTotales.ToString();
+        etiquetaEnemigosRestantes.text = enemigosRestantes.ToString();
+    }
+
+    public void RestarEnemigo()
+    {
+        enemigosRestantes -= 1;
+        etiquetaEnemigosRestantes.text = enemigosRestantes.ToString();
     }
 }

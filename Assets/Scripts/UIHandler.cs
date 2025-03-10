@@ -31,7 +31,6 @@ public class UIHandler : MonoBehaviour
         m_NonPlayerDialogue = uiDocument.rootVisualElement.Q<VisualElement>("NPCDialogue");
         //m_NonPlayerDialogue.style.display = DisplayStyle.None;
         m_TimerDisplay = -1.0f;
-        
     }
 
     private void Update()

@@ -87,6 +87,11 @@ public class EnemyController : MonoBehaviour
 
     public void Fix()
     {
+        if (broken == true)
+        {
+            EnemiesContainer.instance.RestarEnemigo();
+        }
+
         broken = false;
         GetComponent<Rigidbody2D>().simulated = false;
         animator.SetTrigger("Fixed");
